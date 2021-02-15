@@ -1,0 +1,26 @@
+{
+  "name": "vendor_name/trueparser",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "developer",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^7.0",
+    "symfony/dom-crawler": "^5.2",
+    "monolog/monolog": "^2.2",
+    "stil/xpath-selector": "^2.0",
+    "symfony/css-selector": "^5.2",
+    "predis/predis": "^1.1.6",
+    "vlucas/phpdotenv": "^5.3"
+  },
+  "autoload": {
+    "classmap": [
+      "./"
+    ]
+  }
+}
