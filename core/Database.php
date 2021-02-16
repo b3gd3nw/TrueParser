@@ -8,6 +8,7 @@ class Database
 {
 
     private static $predis;
+    private $connected = false;
 
     public function __construct()
     {
@@ -25,17 +26,20 @@ class Database
         return self::$predis;
     }
 
-    public function set()
+    public function set($target, $data)
     {
-//        $this->predis->set(';message', ';Hello world');
-        $url_conf = require __DIR__ . '/../config/url_conf.php';
-        $this->predis->set("tasks", json_encode($url_conf));
+        if (! $this->connected) {
+            $this->connect();
+        }
+        var_dump($data);
+
+        $this->predis->lpush($target, $data);
     }
 
-    public function get()
+    public function get($target)
     {
 //        return $this->predis->get('0');
-       return $this->predis->get("tasks");
+       return $this->predis->rpop($target);
     }
 
 

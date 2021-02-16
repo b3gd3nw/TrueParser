@@ -126,6 +126,7 @@ class ComposerStaticInit9b63d0f1c790258807f1608c982b6a93
     );
 
     public static $classMap = array (
+        'App\\Controllers\\ProxyController' => __DIR__ . '/../..' . '/controllers/ProxyController.php',
         'App\\Core\\Connect' => __DIR__ . '/../..' . '/core/Connect.php',
         'App\\Core\\Database' => __DIR__ . '/../..' . '/core/Database.php',
         'App\\Core\\Main' => __DIR__ . '/../..' . '/core/Main.php',

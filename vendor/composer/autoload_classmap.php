@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controllers\\ProxyController' => $baseDir . '/controllers/ProxyController.php',
     'App\\Core\\Connect' => $baseDir . '/core/Connect.php',
     'App\\Core\\Database' => $baseDir . '/core/Database.php',
     'App\\Core\\Main' => $baseDir . '/core/Main.php',
