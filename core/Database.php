@@ -7,7 +7,7 @@ use Predis;
 class Database
 {
 
-    private static $predis;
+    private $predis;
     private $connected = false;
 
     public function __construct()
@@ -18,28 +18,54 @@ class Database
         return $this->predis;
     }
 
+    /**
+     * Connect to database
+     *
+     * @return Database
+     */
     public function connect()
     {
-        if (self::$predis === null) {
-            self::$predis = new self();
+        if ($this->predis === null) {
+            $this->predis = new self();
         }
-        return self::$predis;
+        return $this->predis;
     }
 
+    /**
+     * Add to queue
+     *
+     * @param  string  $target
+     * @param  string|array  $data
+     */
     public function set($target, $data)
     {
         if (! $this->connected) {
             $this->connect();
         }
-        var_dump($data);
 
         $this->predis->lpush($target, $data);
     }
 
+    /**
+     * Get out of queue
+     *
+     * @param  string  $target
+     * @return string|null
+     */
     public function get($target)
     {
-//        return $this->predis->get('0');
        return $this->predis->rpop($target);
+    }
+
+    /**
+     * Check existence in the queue
+     *
+     * @param  string  $target
+     * @return int
+     */
+    public function exists($target)
+    {
+        return $this->predis->exists($target);
     }
 
 
