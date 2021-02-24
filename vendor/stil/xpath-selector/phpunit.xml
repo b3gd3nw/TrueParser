@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<phpunit bootstrap="./src/Tests/bootstrap.php">
-  <testsuites>
-    <testsuite>
-      <directory>./src/Tests/</directory>
-    </testsuite>
-  </testsuites>
-</phpunit>
