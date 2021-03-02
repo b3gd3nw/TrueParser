@@ -32,8 +32,10 @@ namespace App\Controllers;
          $port = $proxy[1];
          $waitTimeoutInSeconds = 10;
          if($fp = @fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds)){
+             fclose($fp);
              return true;
          } else {
+             fclose($fp);
              return false;
          }
      }
